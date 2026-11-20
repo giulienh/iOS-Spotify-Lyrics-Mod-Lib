@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.scdn.co https://image-cdn-ak.spotifycdn.com https://image-cdn-fa.spotifycdn.com; connect-src https://lrclib.net; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Spicy Lyrics · iOS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand"><span class="eyebrow">SPICY LYRICS</span><span id="mode">FÜR DEIN IPHONE</span></div>
+    <button id="settings-open" class="icon-button" aria-label="Lyrics-Einstellungen öffnen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6"/></svg></button>
+  </header>
+  <section class="track" aria-label="Aktueller Titel">
+    <div id="cover" class="cover" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><img id="art" alt="" hidden></div>
+    <div class="track-text"><h1 id="title">Dein nächster Lieblingsmoment.</h1><p id="artist">Spiele einen Song in Spotify.</p></div>
+  </section>
+  <main id="viewport" aria-label="Liedtext" tabindex="0">
+    <div id="message" class="message" role="status"><span class="status-mark" aria-hidden="true">♪</span><h2>Musik an. Alles andere aus.</h2><p>Öffne den Spotify-Player und starte einen Titel. Dein Liedtext erscheint hier.</p><button id="initial-search" class="secondary">Titel manuell suchen</button></div>
+    <ol id="lyrics" aria-label="Lyrics-Zeilen"></ol>
+    <button id="follow" class="follow" hidden>Zum aktuellen Text</button>
+  </main>
+  <footer class="player">
+    <div class="source-row"><span id="source">Bereit, wenn du es bist</span><span id="sync-status"></span></div>
+    <label class="sr-only" for="progress">Wiedergabeposition</label>
+    <input id="progress" type="range" min="0" max="1" step="0.1" value="0" disabled>
+    <div class="time"><span id="elapsed">0:00</span><span id="duration">0:00</span></div>
+    <div class="controls">
+      <button id="search-open" class="icon-button" aria-label="Anderen Liedtext suchen"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
+      <div class="transport">
+        <button id="previous" class="icon-button" aria-label="Vorheriger Titel" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14M19 5l-11 7 11 7z"/></svg></button>
+        <button id="play" class="play" aria-label="Wiedergabe starten oder pausieren" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path id="play-icon" d="M9 5l11 7-11 7z"/></svg></button>
+        <button id="next" class="icon-button" aria-label="Nächster Titel" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14M5 5l11 7-11 7z"/></svg></button>
+      </div>
+      <button id="import-open" class="icon-button" aria-label="Eigene TTML- oder LRC-Datei importieren"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v4h4M12 11v6m-2.5-2.5L12 17l2.5-2.5"/></svg></button>
+    </div>
+    <p id="notice" class="notice" role="status"></p>
+  </footer>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <div class="dialog-head"><h2 id="settings-title">Deine Lyrics.</h2><span class="helper" id="build-tag">Build 20</span><button class="icon-button dialog-close" aria-label="Einstellungen schließen">✕</button></div>
+    <label class="setting" for="font-size"><span>Schriftgröße</span><output id="font-value">32 px</output></label><input id="font-size" type="range" min="24" max="44" step="2" value="32">
+    <label class="setting" for="offset"><span>Timing-Korrektur</span><output id="offset-value">0,0 s</output></label><input id="offset" type="range" min="-5" max="5" step="0.1" value="0">
+    <label class="setting" for="tempo"><span>Wort-Tempo (Sekunden pro Silbe)</span><output id="tempo-value">0,36 s</output></label><input id="tempo" type="range" min="0.2" max="0.6" step="0.02" value="0.36">
+    <p class="helper">Nur für geschätzte Wort-Zeiten: kleiner = schnelleres Füllen. Echte Wort-Zeiten kommen mit TTML oder Enhanced-LRC.</p>
+    <p class="helper">Positiv: Die Markierung kommt früher. Negativ: später.</p>
+    <label class="switch-row">Romanisierung anzeigen<input id="roman" type="checkbox" checked></label>
+    <label class="switch-row">Übersetzung anzeigen<input id="translation" type="checkbox" checked></label>
+    <label class="switch-row">Ruhige Darstellung<input id="reduced" type="checkbox"></label>
+    <label class="switch-row">Leuchtende aktive Zeile<input id="glow" type="checkbox" checked></label>
+    <p class="helper">Wortgenaues Timing, Romanisierung und Übersetzung benötigen entsprechende TTML-Daten. Online-Lyrics kommen von LRCLIB. Dies ist ein unabhängiger iOS-Port.</p>
+    <button id="forget" class="secondary">Import für diesen Titel entfernen</button>
+    <p id="settings-status" role="status" class="helper"></p>
+  </dialog>
+  <dialog id="search" aria-labelledby="search-title">
+    <div class="dialog-head"><h2 id="search-title">Finde die richtigen Worte.</h2><button class="icon-button dialog-close" aria-label="Suche schließen">✕</button></div>
+    <form id="search-form"><label for="query">Titel und Interpret</label><div class="search-row"><input id="query" type="search" autocomplete="off" placeholder="Titel oder Interpret" required maxlength="200"><button class="primary" type="submit">Suchen</button></div></form>
+    <p id="search-status" role="status" class="helper">Wähle dieselbe Aufnahme wie in Spotify, damit das Timing passt.</p><ul id="results"></ul>
+  </dialog>
+  <input id="file" type="file" accept=".ttml,.xml,.lrc,text/plain,application/xml" hidden>
+  <script src="app.js" defer></script>
+</body>
+</html>

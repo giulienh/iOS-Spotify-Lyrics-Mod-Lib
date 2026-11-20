@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "version": 202611202209,
+  "bridge": 1,
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "198691a419c6373ecd7b5ce4cbe6b1862f6324e8a527a9abec93b7b781b1275a",
+      "size": 6111
+    },
+    {
+      "path": "app.js",
+      "sha256": "4fa51b421d53297092c30a65179313064af77ef5fbac382b111ced7d5f1d2433",
+      "size": 99791
+    },
+    {
+      "path": "styles.css",
+      "sha256": "edcfcbf6c738993f5d68f398bf5e85130ff10cfb18c263c8d1c8d4b9724dac77",
+      "size": 16951
+    },
+    {
+      "path": "LICENSE-AGPL-3.0.txt",
+      "sha256": "aea93585c0af0baf2ee4a4a89129219553c097774b83968b52a8e28c068d8a94",
+      "size": 34485
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "sha256": "15769a9469e56333d5468cd52bee9a5658e512b16107693657798cc2ff848ff2",
+      "size": 1446
+    },
+    {
+      "path": "dependency-licenses.txt",
+      "sha256": "41f08fb129c4262131206c14eff6d4ba9eead35e608de3b8bc2877e9cdcb43c6",
+      "size": 8890
+    }
+  ]
+}

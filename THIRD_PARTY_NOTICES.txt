@@ -1,0 +1,32 @@
+# Third-party notices
+
+## Spicy Lyrics
+
+Spicy Lyrics by Spikerko and contributors.
+Source: https://github.com/spikerko/spicy-lyrics
+Revision: 34ad8c683204c522f227060475bf4f8aae36508e
+License: GNU Affero General Public License version 3 (included in LICENSE).
+
+The TTML parser and its text-cleaning helpers under mobile/vendor/spicy-lyrics
+are copied from that revision. The Logger adapter is newly written for iOS;
+it suppresses lyric and user-data logging. The mobile rendering and native
+Spotify bridge are newly written. This is an independent experimental port,
+not an official Spicy Lyrics release. Hosted Spicy Lyrics services and their
+databases are not included. No Spotify token is extracted or sent to a service.
+
+This combined port is distributed under AGPL-3.0. The earlier starter's MIT
+notice is retained in LICENSE-MIT. Spotify and the user-supplied Eevee binaries
+are not part of this source repository and are not relicensed by this project.
+
+## fast-xml-parser
+
+Copyright (c) 2017-2026 Amit Kumar Gupta and contributors.
+License: MIT. Used by the upstream TTML parser. The exact package version and
+transitive dependencies are recorded in package-lock.json. Its complete license
+and dependency notices are copied into resources/mobile/dependency-licenses.txt
+by the build script.
+
+## Build/test tools
+
+esbuild-wasm (MIT) and Playwright (Apache-2.0) are development tools and are not
+shipped inside the IPA as runtime libraries.
