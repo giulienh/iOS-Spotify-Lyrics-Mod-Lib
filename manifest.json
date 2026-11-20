@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": 202611202223,
-  "bridge": 2,
+  "version": 202611202227,
+  "bridge": 1,
   "files": [
     {
       "path": "index.html",
