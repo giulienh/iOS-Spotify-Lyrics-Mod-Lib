@@ -40,9 +40,12 @@
     <p id="notice" class="notice" role="status"></p>
   </footer>
   <dialog id="settings" aria-labelledby="settings-title">
-    <div class="dialog-head"><h2 id="settings-title">Deine Lyrics.</h2><span class="helper" id="build-tag">Build 20</span><button class="icon-button dialog-close" aria-label="Einstellungen schließen">✕</button></div>
+    <div class="dialog-head"><h2 id="settings-title">Deine Lyrics.</h2><span class="helper" id="build-tag">Build 21</span><button class="icon-button dialog-close" aria-label="Einstellungen schließen">✕</button></div>
     <label class="setting" for="font-size"><span>Schriftgröße</span><output id="font-value">32 px</output></label><input id="font-size" type="range" min="24" max="44" step="2" value="32">
     <label class="setting" for="offset"><span>Timing-Korrektur</span><output id="offset-value">0,0 s</output></label><input id="offset" type="range" min="-5" max="5" step="0.1" value="0">
+    <label class="setting" for="track-offset"><span>Korrektur nur für diesen Titel</span><output id="track-offset-value">0,00 s</output></label><input id="track-offset" type="range" min="-5" max="5" step="0.05" value="0">
+    <div class="setting"><button type="button" id="nudge-earlier" class="secondary">Früher +0,1 s</button><button type="button" id="nudge-later" class="secondary">Später −0,1 s</button></div>
+    <p class="helper">Wenn die Markierung zu spät kommt, „Früher“ wählen. Die Einstellung wird für diesen Titel gemerkt.</p>
     <label class="setting" for="tempo"><span>Wort-Tempo (Sekunden pro Silbe)</span><output id="tempo-value">0,36 s</output></label><input id="tempo" type="range" min="0.2" max="0.6" step="0.02" value="0.36">
     <p class="helper">Nur für geschätzte Wort-Zeiten: kleiner = schnelleres Füllen. Echte Wort-Zeiten kommen mit TTML oder Enhanced-LRC.</p>
     <p class="helper">Positiv: Die Markierung kommt früher. Negativ: später.</p>
